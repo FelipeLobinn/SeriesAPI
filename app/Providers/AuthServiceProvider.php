@@ -41,9 +41,9 @@ class AuthServiceProvider extends ServiceProvider
             }
             $authorizationHeader = $request->header(('Authorization'));
             $token = str_replace('Bearer ','', $authorizationHeader);
-            JWT::decode($token, new Key(env('JWT_KEY'), 'HS256'));
+            $atenticacao = JWT::decode($token, new Key(env('JWT_KEY'), 'HS256'));
 
-            //return User::where('api_token', $request->input('api_token'))->first();
+            return User::where('email', $atenticacao->email)->first();
         });
     }
 }

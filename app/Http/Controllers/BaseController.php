@@ -39,7 +39,7 @@ abstract class BaseController{
         if(is_null($recurso))
             return response('',204);
         $recurso->destroy($id);
-        return response($this->classe.' deletada');
+        return response('Deletado com sucesso!');
     }
 
 }
