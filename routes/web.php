@@ -19,7 +19,7 @@ $router->get('/', function () use ($router) {
 });
 
 
-$router->group(['prefix'=> 'api', 'middleware' => 'autenticador'], function () use ($router){
+$router->group(['prefix'=> 'api'/* , 'middleware' => 'autenticador' */], function () use ($router){
     $router->group(['prefix'=> 'series'], function () use ($router){
 
         $router->post('','SeriesController@store');
